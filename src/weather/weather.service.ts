@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-
 import { WeatherDto } from './dto/weather.dto';
+import { formatDateTime } from 'src/helper';
 
 @Injectable()
 export class WeatherService {
@@ -27,7 +27,7 @@ export class WeatherService {
       description: data.weather[0].description,
       humidity: data.main.humidity,
       windSpeed: data.wind.speed,
-      currentTime: (new Date()).toString(),
+      currentTime: formatDateTime(new Date()),
       icon: data.weather[0].icon,
     };
   }
