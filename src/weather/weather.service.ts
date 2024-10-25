@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+
 import { WeatherDto } from './dto/weather.dto';
-import { formatDateTime } from 'src/helper';
+import { cityTimeZones, formatDateTime } from 'src/helper';
 
 @Injectable()
 export class WeatherService {
@@ -21,13 +22,16 @@ export class WeatherService {
   }
 
   private processWeatherData(data): WeatherDto {
+    const timeZone = cityTimeZones[data.name] || 'UTC';
+      const currentTime = new Date();
+      const formattedTime = formatDateTime(currentTime, timeZone);
     return {
       city: data.name,
       temperature: data.main.temp,
       description: data.weather[0].description,
       humidity: data.main.humidity,
       windSpeed: data.wind.speed,
-      currentTime: formatDateTime(new Date()),
+      currentTime: formattedTime,
       icon: data.weather[0].icon,
     };
   }
