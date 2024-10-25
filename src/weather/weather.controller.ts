@@ -11,9 +11,6 @@ export class WeatherController {
 
   @Get('/:city')
   async getWeather(@Param('city') city: string) {
-    if (!city) {
-      city = 'New York';
-    }
-    await this.weatherGateway.triggerWeatherUpdates(city);
+    await this.weatherGateway.startWeatherUpdates(city);
   }
 }

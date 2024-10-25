@@ -24,7 +24,7 @@ export class WeatherGateway
 
   async handleConnection(client: Socket) {
     console.log('Client connected:', client.id);
-    this.startWeatherUpdates(client);
+    this.startWeatherUpdates();
   }
 
   handleDisconnect(client: Socket) {
@@ -32,25 +32,14 @@ export class WeatherGateway
     clearInterval(this.interval);
   }
 
-  async startWeatherUpdates(client: Socket) {
+  async startWeatherUpdates(city: string = 'New York') {
     if (this.interval) {
       clearInterval(this.interval);
     }
 
     this.interval = setInterval(async () => {
-      const data = await this.weatherService.getWeatherUpdate('New York');
-      client.emit('weatherUpdate', data);
-    }, 5000);
-  }
-
-  async triggerWeatherUpdates(city: string) {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-
-    this.interval = setInterval(async () => {
-      const weatherData = await this.weatherService.getWeatherUpdate(city);
-      this.server.emit('weatherUpdate', weatherData);
+      const data = await this.weatherService.getWeatherUpdate(city);
+      this.server.emit('weatherUpdate', data);
     }, 5000);
   }
 }
