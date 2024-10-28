@@ -4,7 +4,9 @@ import {
   OnGatewayConnection,
   OnGatewayDisconnect,
 } from '@nestjs/websockets';
+
 import { Server, Socket } from 'socket.io';
+
 import { WeatherService } from './weather.service';
 
 @WebSocketGateway({

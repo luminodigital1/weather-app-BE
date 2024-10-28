@@ -1,4 +1,5 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+
 import { WeatherGateway } from './weather.gateway';
 import { WeatherService } from './weather.service';
 
