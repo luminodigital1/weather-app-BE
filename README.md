@@ -34,12 +34,7 @@ npm install
 ```
 
 ### Set Up Environment Variables
-Create a `.env` file in the root of the project and add the following environment variables:
-```env
-PORT=3000
-WEATHER_API_URL=https://api.openweathermap.org/data/2.5/weather
-WEATHER_API_KEY= weather-api-key
-```
+Create a `.env` file in the root of the project and copy environment variables from `.env.example`.
 
 ### Running the Application
 To start the application in development mode, run:
