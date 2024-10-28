@@ -38,7 +38,7 @@ Create a `.env` file in the root of the project and add the following environmen
 ```env
 PORT=3000
 WEATHER_API_URL=https://api.openweathermap.org/data/2.5/weather
-WEATHER_API_KEY=1b761190ea95f294c584c3e1976f71ab
+WEATHER_API_KEY= weather-api-key
 ```
 
 ### Running the Application
