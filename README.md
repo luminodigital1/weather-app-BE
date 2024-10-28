@@ -1,73 +1,56 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Weather Application Backend
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Overview
 
-## Description
+The Weather Application Backend is built using Nest.js and provides a robust server-side solution for a weather application. This backend leverages the OpenWeatherMap API to fetch real-time weather data for specified cities. It uses Socket.IO to facilitate real-time updates, ensuring users receive the latest weather information.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Key Features:
+- **Real-time Weather Updates**: Utilizing Socket.IO to push updates to clients when new weather data is available.
+- **City-based Weather Retrieval**: Provides an API endpoint to retrieve weather data for a specified city.
+- **Time Zone Information**: Returns the time zone of the selected city along with weather details.
 
-## Installation
+## Getting Started
 
+To run the application locally, follow these steps:
+
+### Prerequisites
+- Ensure you have [Node.js](https://nodejs.org/en/download/) installed on your machine (version 14.x or later).
+- Install [Nest CLI](https://docs.nestjs.com/cli/overview) globally (optional): 
+  ```bash
+  npm install -g @nestjs/cli
+  ```
+
+### Clone the Repository
 ```bash
-$ npm install
+git clone https://github.com/luminodigital1/weather-app-BE.git
+cd weather-app-BE
 ```
 
-## Running the app
-
+### Install Dependencies
+Run the following command to install the required dependencies:
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+### Set Up Environment Variables
+Create a `.env` file in the root of the project and add the following environment variables:
+```env
+PORT=3000
+WEATHER_API_URL=https://api.openweathermap.org/data/2.5/weather
+WEATHER_API_KEY=1b761190ea95f294c584c3e1976f71ab
 ```
 
-## Support
+### Running the Application
+To start the application in development mode, run:
+```bash
+npm run start:dev
+```
+The server will start and listen on `http://localhost:3000`.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Deployment URL
+https://weather-app-be-2ebf8cd3008b.herokuapp.com/
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Acknowledgements
+- [NestJS Documentation](https://docs.nestjs.com/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
